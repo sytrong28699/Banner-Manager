@@ -1,34 +1,33 @@
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import Layout from './components/dashboard/Layout';
-import Sidebar from './components/dashboard/Sidebar';
+import Layout from './components/Layout';
 import styled from "styled-components";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { AboutUs, OurAim, OurVision } from "./pages/AboutUs";
 import {
   Services,
+  ServicesOne,
+  ServicesTwo,
   ServicesThree,
 } from "./pages/Services";
 import { Events, EventsOne, EventsTwo } from "./pages/Events";
 import Contact from "./pages/ContactUs";
 import Support from "./pages/Support";
-import CreateBanner from './components/banner/CreateBanner';
-import UpdateBanner from './components/banner/UpdateBanner';
 
-function App({ userInfo }) {
+function App({userInfo}) {
   return (
     <Router>
       <Home>
-        <Sidebar />
+        <Layout />
         <Switch>
           <Route path="/about-us" exact component={AboutUs} />
           <Route path="/about-us/aim" exact component={OurAim} />
           <Route path="/about-us/vision" exact component={OurVision} />
           <Route path="/services" exact component={Services} />
-          <Route path="/banner/create" exact component={CreateBanner} />
-          <Route path="/banner/update" exact component={UpdateBanner} />
-          <Route path="/banner/delete" exact component={CreateBanner} />
+          <Route path="/services/services1" exact component={ServicesOne} />
+          <Route path="/services/services2" exact component={ServicesTwo} />
+          <Route path="/services/services3" exact component={ServicesThree} />
           <Route path="/contact" exact component={Contact} />
           <Route path="/events" exact component={Events} />
           <Route path="/events/events1" exact component={EventsOne} />
@@ -39,7 +38,7 @@ function App({ userInfo }) {
     </Router>
   );
 }
-export const Home = styled.div`
+export const Home = styled.div `
   display: flex;
 `;
 
